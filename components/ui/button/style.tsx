@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { css } from "styled-components/native";
 import { ButtonProps } from ".";
-import Text from "../text";
+import { Text } from "react-native";
 
 export const buttonVariants = {
   default: css`
@@ -47,7 +47,7 @@ export const buttonTextVariants = {
     color: ${({ theme }) => theme.colors.white};
   `,
   error: css`
-    color: ${({ theme }) => theme.colors.error};
+    color: ${({ theme }) => theme.colors.white};
   `,
   info: css`
     color: ${({ theme }) => theme.colors.white};
@@ -60,19 +60,15 @@ export const buttonTextVariants = {
 export const buttonSizes = {
   sm: css`
     padding: ${({ theme }) => theme.spacing.padding.sm}px;
-    height: ${({ theme }) => theme.sizes.sm}px;
   `,
   md: css`
     padding: ${({ theme }) => theme.spacing.padding.md}px;
-    height: ${({ theme }) => theme.sizes.md}px;
   `,
   lg: css`
     padding: ${({ theme }) => theme.spacing.padding.lg}px;
-    height: ${({ theme }) => theme.sizes.lg}px;
   `,
   xl: css`
     padding: ${({ theme }) => theme.spacing.padding.xl}px;
-    height: ${({ theme }) => theme.sizes.xl}px;
   `,
 };
 
@@ -109,9 +105,9 @@ export const buttonGap = {
 export const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   ${({ variant, size, shape, gap }) => css`
     ${buttonVariants[variant || "primary"]}
-    ${buttonSizes[size || "md"]}
-   ${buttonShapes[shape || "rounded"]}
-   ${buttonGap[gap || "md"]}
+    ${buttonSizes[size || "sm"]}
+    ${buttonShapes[shape || "rounded"]}
+    ${buttonGap[gap || "md"]}
   `}
 
   flex-direction: row;

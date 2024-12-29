@@ -24,11 +24,10 @@ export default function Button({
   variant = "primary",
   gap = "md",
   shape = "rounded",
-  size = "md",
+  size = "sm",
   ...props
 }: PropsWithChildren<ButtonProps>) {
   const isDisabled = props.disabled || props.loading;
-  const isText = typeof children === "string";
   return (
     <ButtonContainer
       {...props}
@@ -38,12 +37,7 @@ export default function Button({
       shape={shape}
       gap={gap}
     >
-      {isText ? (
-        <ButtonText textVariant={variant}>{children}</ButtonText>
-      ) : (
-        children
-      )}
-      {props.loading && <ActivityIndicator />}
+      {props.loading ? <ActivityIndicator /> : children}
     </ButtonContainer>
   );
 }

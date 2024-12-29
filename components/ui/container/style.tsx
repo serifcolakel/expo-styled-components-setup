@@ -2,6 +2,7 @@ import { SafeAreaView } from "react-native";
 import styled from "styled-components/native";
 
 import { ContainerProps } from ".";
+import { themeStyle } from "@/utils/style.utils";
 
 export const ContainerWrapper = styled(SafeAreaView)<ContainerProps>`
   flex: 1;
@@ -11,4 +12,6 @@ export const ContainerWrapper = styled(SafeAreaView)<ContainerProps>`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  ${({ ...props }) => themeStyle(props)};
 `;

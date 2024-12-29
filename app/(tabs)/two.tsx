@@ -7,15 +7,29 @@ import { faker } from "@faker-js/faker";
 
 export default function TabTwoScreen() {
   return (
-    <Container>
-      <Flex direction="column" p="lg" align="center" gap="lg">
+    <Container my="xl" scrollable>
+      <Flex direction="column" p="lg" my="xl" align="center" gap="lg">
         <Text>{faker.lorem.paragraphs()}</Text>
         <Text color="info" variant="2xl">
           {faker.lorem.paragraphs(3)}
         </Text>
-        <Button variant="primary" gap="sm" size="xl">
-          <Text color="white">Primary Button</Text>
+        <Button loading>
+          <Text color="border">Primary Button</Text>
+        </Button>
+        <Button disabled>
+          <Text color="border">Primary Button</Text>
+        </Button>
+        <Button>
+          <Text color="border">Primary Button</Text>
           <Icon name="code" color="white" />
+        </Button>
+        <Button variant="primary" gap="sm" size="md">
+          <Icon name="code" color="white" />
+          <Text color="white">Primary Button</Text>
+        </Button>
+        <Button variant="primary" gap="sm" size="lg">
+          <Icon name="code" color="white" />
+          <Text color="white">Primary Button</Text>
         </Button>
         <Button variant="primary" gap="sm" size="xl">
           <Icon name="code" color="white" />

@@ -34,8 +34,6 @@ export default function LayoutExample() {
           color={colors.primary}
         />
         <Text>{faker.lorem.paragraph()}</Text>
-        <Text>{faker.lorem.paragraph()}</Text>
-        <Text>{faker.lorem.paragraph()}</Text>
       </FlexItem>
       <FlexItem p="sm" grow={2} basis="50%">
         <Text>{faker.lorem.paragraph()}</Text>

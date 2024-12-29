@@ -1,4 +1,5 @@
 import { Platform } from "react-native";
+import { height, width } from "./screen.utils";
 
 export const getPlatform = () => {
   return Platform.OS;
@@ -14,4 +15,20 @@ export const isIOS = () => {
 
 export const isWeb = () => {
   return getPlatform() === "web";
+};
+
+export const isMacOS = () => {
+  return getPlatform() === "macos";
+};
+
+export const isWindows = () => {
+  return getPlatform() === "windows";
+};
+
+export const isPortrait = () => {
+  return height >= width;
+};
+
+export const isLandscape = () => {
+  return width > height;
 };
