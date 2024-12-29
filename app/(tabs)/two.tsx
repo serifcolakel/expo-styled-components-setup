@@ -1,31 +1,27 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Icon from "@/components/ui/icon";
+import { Flex } from "@/components/ui/layout";
+import Text from "@/components/ui/text";
+import { faker } from "@faker-js/faker";
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
+    <Container>
+      <Flex direction="column" p="lg" align="center" gap="lg">
+        <Text>{faker.lorem.paragraphs()}</Text>
+        <Text color="info" variant="2xl">
+          {faker.lorem.paragraphs(3)}
+        </Text>
+        <Button variant="primary" gap="sm" size="xl">
+          <Text color="white">Primary Button</Text>
+          <Icon name="code" color="white" />
+        </Button>
+        <Button variant="primary" gap="sm" size="xl">
+          <Icon name="code" color="white" />
+          <Text color="white">Primary Button</Text>
+        </Button>
+      </Flex>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
