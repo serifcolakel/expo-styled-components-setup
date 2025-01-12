@@ -6,9 +6,11 @@ import { Text } from "react-native";
 export const buttonVariants = {
   default: css`
     background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
   `,
   primary: css`
     background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
   `,
   secondary: css`
     background-color: ${({ theme }) => theme.colors.secondary};

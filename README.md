@@ -1,40 +1,49 @@
-Here's an updated version of your README.md file with more specific details about your Expo with styled-components setup:
+This guide walks you through setting up an Expo project using styled-components and TypeScript. The project supports a theme system, dark mode, and type-safe UI components, making it a robust foundation for modern React Native applications.
 
-````markdown
-# Expo with Styled Components Setup
+[Code](https://github.com/serifcolakel/expo-styled-components-setup)
 
-A comprehensive setup guide and boilerplate for using styled-components with Expo and TypeScript.
+---
 
-## Features
+## 🚀 Features
 
-- 🎨 Styled Components with TypeScript
-- 📱 Expo Router for navigation
-- 🌓 Dark/Light theme support
-- 🎯 Pre-configured UI components
-- 📏 Consistent spacing and typography
-- 🔍 Type-safe theme usage
+- **Styled Components**: Leverage the power of styled-components with TypeScript.
+- **Expo Router**: Simplified navigation management.
+- **Dark/Light Themes**: Built-in theme switching based on system preferences.
+- **Pre-configured Components**: Ready-to-use, customizable UI elements.
+- **Consistent Design**: Standardized spacing and typography systems.
+- **Type Safety**: Fully typed themes and components.
 
-## Quick Start
+---
 
-### 1. Create a new Expo project
+## 🛠️ Quick Start
+
+### Step 1: Create a New Expo Project
+
+Run the following command to initialize a new Expo project:
 
 ```bash
 npx create-expo-app styled-setup --template
 
-# Choose template: › Blank (TypeScript)
+# Choose template: ➟ Blank (TypeScript)
 ```
 
-### 2. Install Dependencies
+### Step 2: Install Dependencies
+
+Install the required dependencies for styled-components:
 
 ```bash
 # Install styled-components
 npm install styled-components
 
-# Install dev dependencies
+# Install type definitions for styled-components
 npm install @types/styled-components-react-native --save-dev
 ```
 
-## Project Structure
+---
+
+## 📂 Project Structure
+
+Organize your project with the following structure:
 
 ```
 ├── app/                     # Expo Router app directory
@@ -53,19 +62,23 @@ npm install @types/styled-components-react-native --save-dev
 │   │   └── layout/
 │   └── ExternalLink.tsx
 ├── themes/                  # Theme configuration
-│   ├── colors.ts           # Color definitions
-│   ├── sizes.ts            # Size scales
-│   ├── spacing.ts          # Spacing system
-│   ├── styles.ts           # Common styles
-│   ├── theme.d.ts          # Theme type definitions
-│   └── index.ts            # Theme export
-└── hooks/                  # Custom hooks
-    └── useColors.ts        # Theme colors hook
+│   ├── colors.ts            # Color definitions
+│   ├── sizes.ts             # Size scales
+│   ├── spacing.ts           # Spacing system
+│   ├── styles.ts            # Common styles
+│   ├── theme.d.ts           # Theme type definitions
+│   └── index.ts             # Theme export
+└── hooks/                   # Custom hooks
+    └── useColors.ts         # Theme colors hook
 ```
 
-## Core Components
+---
+
+## ✨ Core Components
 
 ### Button Component
+
+The Button component is a flexible, styled button supporting variants, sizes, and loading states.
 
 ```typescript
 import Button from "@/components/ui/button";
@@ -76,15 +89,19 @@ import Button from "@/components/ui/button";
 </Button>;
 ```
 
-Available props:
+**Props:**
 
-- `variant`: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'
-- `size`: 'sm' | 'md' | 'lg' | 'xl'
-- `shape`: 'square' | 'rounded' | 'roundedLg' | 'circular'
-- `loading`: boolean
-- `disabled`: boolean
+- `variant`: `'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'`
+- `size`: `'sm' | 'md' | 'lg' | 'xl'`
+- `shape`: `'square' | 'rounded' | 'roundedLg' | 'circular'`
+- `loading`: `boolean`
+- `disabled`: `boolean`
+
+---
 
 ### Flex Layout
+
+The Flex and FlexItem components offer a flexible layout system inspired by CSS flexbox.
 
 ```typescript
 import { Flex, FlexItem } from "@/components/ui/layout";
@@ -97,17 +114,21 @@ import { Flex, FlexItem } from "@/components/ui/layout";
 </Flex>;
 ```
 
-Available props:
+**Props:**
 
-- `direction`: 'row' | 'column'
-- `justify`: 'start' | 'center' | 'end' | 'between' | 'around'
-- `align`: 'start' | 'center' | 'end'
-- `gap`: 'sm' | 'md' | 'lg' | 'xl'
-- `wrap`: 'wrap' | 'nowrap'
+- `direction`: `'row' | 'column'`
+- `justify`: `'start' | 'center' | 'end' | 'between' | 'around'`
+- `align`: `'start' | 'center' | 'end'`
+- `gap`: `'sm' | 'md' | 'lg' | 'xl'`
+- `wrap`: `'wrap' | 'nowrap'`
 
-## Theme System
+---
+
+## 🎨 Theme System
 
 ### Colors
+
+Define a consistent color palette in `themes/colors.ts`:
 
 ```typescript
 const colors = {
@@ -117,11 +138,15 @@ const colors = {
   error: "#dc2626",
   warning: "#f59e0b",
   info: "#0ea5e9",
-  // ... more colors
+  // Additional colors...
 };
 ```
 
+---
+
 ### Spacing
+
+Standardize spacing in `themes/spacing.ts`:
 
 ```typescript
 const spacing = {
@@ -132,11 +157,15 @@ const spacing = {
     lg: 24,
     xl: 32,
   },
-  // ... margin and gap
+  // Margin and gap definitions...
 };
 ```
 
+---
+
 ### Typography
+
+Define font sizes in `themes/styles.ts`:
 
 ```typescript
 const fontSizes = {
@@ -146,13 +175,15 @@ const fontSizes = {
   md: 16,
   lg: 20,
   xl: 24,
-  // ... more sizes
+  // Additional sizes...
 };
 ```
 
-## Dark Mode Support
+---
 
-The theme automatically adapts to system dark mode preferences:
+## 🌙 Dark Mode Support
+
+The app adapts to system dark mode preferences dynamically:
 
 ```typescript
 function RootLayoutNav() {
@@ -173,12 +204,15 @@ function RootLayoutNav() {
 }
 ```
 
-## Type Safety
+---
+
+## 🛡️ Type Safety
 
 ### Theme Types
 
+Ensure theme type safety with `themes/theme.d.ts`:
+
 ```typescript
-// themes/theme.d.ts
 import "styled-components/native";
 import theme from ".";
 
@@ -189,7 +223,11 @@ declare module "styled-components/native" {
 }
 ```
 
+---
+
 ### Component Props
+
+Define props for the Button component:
 
 ```typescript
 type ButtonProps = {
@@ -200,34 +238,34 @@ type ButtonProps = {
 } & TouchableOpacityProps;
 ```
 
-## Best Practices
+---
 
-1. **Theme Usage**
+## 🔑 Best Practices
 
-   - Always use theme values instead of hard-coded values
-   - Access theme values through props: `${({ theme }) => theme.colors.primary}`
-   - Use semantic color names
+1. **Theming**:
 
-2. **Component Organization**
+   - Use theme values instead of hardcoding.
+   - Access values via props: `${({ theme }) => theme.colors.primary}`.
 
-   - Keep styled components in separate `style.tsx` files
-   - Group related components in folders
-   - Use index.tsx for component logic
+2. **Component Organization**:
 
-3. **TypeScript**
+   - Separate styled components into `style.tsx` files.
+   - Group related components in folders with an `index.tsx` entry point.
 
-   - Define proper interfaces for all props
-   - Use theme type definitions
-   - Extend existing React Native types
+3. **TypeScript**:
 
-4. **Performance**
-   - Define styled components outside of render functions
-   - Use memoization for complex components
-   - Avoid unnecessary prop changes
+   - Type all props and components explicitly.
+   - Extend existing React Native types where applicable.
 
-## Conclusion
+4. **Performance**:
+   - Define styled components outside render functions.
+   - Memoize complex components.
+   - Minimize prop changes.
 
-This setup provides a solid foundation for building styled-components with Expo and TypeScript. It includes a theme system, dark mode support, and type-safe components. Feel free to customize and extend this setup to fit your project requirements.
+---
 
-Feel free to customize this template further to include any additional details or sections you find relevant to your Expo project setup. If you have any questions or need further assistance, please don't hesitate to ask! 🚀
-````
+## 🏁 Conclusion
+
+This guide provides a comprehensive setup for using styled-components with Expo and TypeScript. With a robust theme system, dark mode support, and type-safe components, this foundation ensures a scalable and maintainable codebase. Customize and extend this setup to meet your project’s unique requirements.
+
+Have questions or feedback? Drop a comment or reach out! 🚀

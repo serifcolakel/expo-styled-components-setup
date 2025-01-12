@@ -49,6 +49,12 @@ export default function TabLayout() {
           title: "Tab Two",
         }}
       />
+      <Tabs.Screen
+        name="input-mask"
+        options={{
+          title: "Input Mask",
+        }}
+      />
     </Tabs>
   );
 }
